@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface TodoService {
-    public void createTask(Task task);
+    public Task createTask(Task task);
 
     public List<Task> getAllTasks();
 

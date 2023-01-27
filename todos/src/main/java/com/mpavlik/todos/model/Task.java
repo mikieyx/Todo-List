@@ -5,8 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
 import java.util.Date;
 
+// @Entity marks class to be mapped to database
 @Entity
 public class Task {
 
@@ -15,7 +17,7 @@ public class Task {
     int id;
 
     private String taskName;
-    private Date dueDate;
+    private LocalDate dueDate;
     private boolean completed;
 
     public Task(){
@@ -38,11 +40,12 @@ public class Task {
         this.completed = completed;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 

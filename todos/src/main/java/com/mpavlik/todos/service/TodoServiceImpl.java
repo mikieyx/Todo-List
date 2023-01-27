@@ -10,20 +10,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Transactional
 public class TodoServiceImpl implements TodoService{
 
     @Autowired
     private TaskRepository repository;
 
-    public void createTask(Task task){
-        repository.save(task);
+
+    @Override
+    public Task createTask(Task task){
+        return repository.save(task);
     }
 
     @Override
     public List<Task> getAllTasks() {
         Sort sort  = Sort.by(Sort.Direction.ASC, "date");
-        return repository.findAll(sort);
+        return repository.findAll();
     }
 
     public void deleteTask(int id){
