@@ -25,6 +25,8 @@ public class TodoServiceImpl implements TodoService{
     public List<Task> getAllTasks() {
         Sort sort  = Sort.by(Sort.Direction.ASC, "date");
         return repository.findAll();
+        // sort tasks by date either in backend or front end
+        // sort.by method isn't working in this class, fix later
     }
 
     public void deleteTask(int id){
