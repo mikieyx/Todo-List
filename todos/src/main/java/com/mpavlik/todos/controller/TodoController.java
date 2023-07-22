@@ -28,6 +28,7 @@ public class TodoController {
     public String create(@RequestBody Task task){
         LocalDate date = LocalDate.parse(task.getDueDate().toString(), DateTimeFormatter.ISO_DATE);
         task.setDueDate(date);
+        System.out.println(task.getDueDate().toString());
         todoService.createTask(task);
         return "Task created";
     }

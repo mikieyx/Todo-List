@@ -23,8 +23,9 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public List<Task> getAllTasks() {
-        Sort sort  = Sort.by(Sort.Direction.ASC, "date");
+
         return repository.findAll();
+        // Sort in controller most likely
         // sort tasks by date either in backend or front end
         // sort.by method isn't working in this class, fix later
     }
