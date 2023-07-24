@@ -9,12 +9,11 @@ export default function Todo() {
     const paperStyle = {padding:'50px 20px', width:600, margin:'20px auto'}
     const [taskName, setTaskName]=useState('')
     const [dueDate, setDueDate]=useState('')
-    const [completed, setCompleted]=useState(false)
     const [tasks, setTasks]=useState([])
     
     const handleClick=(e)=> {
         e.preventDefault()
-        const task = {taskName, dueDate, completed}
+        const task = {id, taskName, dueDate}
         const url = 'http://localhost:8080/todo/create';
         fetch(url, {
           method: "POST",
@@ -23,6 +22,12 @@ export default function Todo() {
         }).then(() => {console.log("Sent to database!")})
 
         window.location.reload();
+    }
+
+    const handleDelete=(id)=> {
+      const deleteURL = 'http://localhost:8080/todo/delete/' + id
+      const deleteTask = {id, taskName, dueDate, completed}
+
     }
 
     useEffect(() => {
@@ -68,6 +73,7 @@ export default function Todo() {
               {task.taskName}
               <br></br>
               {task.dueDate}
+              <Button variant="contained" color="error" size="small" style ={{float: 'right'}} disableElevation onClick={() => handleDelete(task.id)}> Delete</Button>
             </Paper>
           ))}
       </Paper>

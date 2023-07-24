@@ -18,7 +18,6 @@ public class Task {
 
     private String taskName;
     private LocalDate dueDate;
-    private boolean completed;
 
     public Task(){
 
@@ -30,14 +29,6 @@ public class Task {
 
     public void setTaskName(String taskName) {
         this.taskName = taskName;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
     }
 
     public LocalDate getDueDate() {
