@@ -13,7 +13,7 @@ export default function Todo() {
     
     const handleClick=(e)=> {
         e.preventDefault()
-        const task = {id, taskName, dueDate}
+        const task = {taskName, dueDate}
         const url = 'http://localhost:8080/todo/create';
         fetch(url, {
           method: "POST",
@@ -25,9 +25,13 @@ export default function Todo() {
     }
 
     const handleDelete=(id)=> {
-      const deleteURL = 'http://localhost:8080/todo/delete/' + id
-      const deleteTask = {id, taskName, dueDate, completed}
-
+      console.log(id)
+      const deleteURL = `http://localhost:8080/todo/delete/${id}`
+      fetch(deleteURL, {
+        method: "DELETE"
+      }).then(()=>{console.log("deleted!")} )
+      
+      window.location.reload();
     }
 
     useEffect(() => {
